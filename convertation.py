@@ -22,3 +22,14 @@ def decimal_to_binary_lab(entry):
         ms.showerror("Error!", "Enter integer number")
         entry.delete(0, END)
     
+def binary_to_decimal_lab(entry):
+    try:
+        binary = int(entry.get(), 2)
+        entry.delete(0, END)
+        return str(binary)
+    except TypeError:
+        ms.showerror("Error!", "Enter binary number")
+        entry.delete(0, END)
+    except ValueError:
+        ms.showerror("Error!", "Enter binary number")
+        entry.delete(0, END)
