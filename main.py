@@ -1,6 +1,8 @@
 from tkinter import *
 import convertation as cnv
 from tkinter.ttk import Combobox
+from operation import calculating
+
 
 def convert_win(title, type, func):
     win2 = Toplevel(root)
@@ -63,7 +65,7 @@ menu_frame = Frame(root)
 menu_frame.pack(fill=BOTH, expand=True)
 dec_to_bin_button = Button(menu_frame, text = "Decimal to Binary", width=15, command=lambda: convert_win("decimal to binary", "decimal", cnv.decimal_to_binary_lab))
 bin_to_dec_button = Button(menu_frame, text = "Binary to Decimal", width=15, command=lambda: convert_win("binary to decimal", "binary", cnv.binary_to_decimal_lab))
-calculator_button = Button(menu_frame, text = "Arithmetic operations", width=15, command=None)
+calculator_button = Button(menu_frame, text = "Arithmetic operations", width=15, command=calcul_win)
 dec_to_bin_button.place(relx=0.1, rely=0.15, relwidth=0.8, relheight=0.2)
 bin_to_dec_button.place(relx=0.1, rely=0.4, relwidth=0.8, relheight=0.2)
 calculator_button.place(relx=0.1, rely=0.65, relwidth=0.8, relheight=0.2)
