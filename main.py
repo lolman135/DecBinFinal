@@ -1,5 +1,6 @@
 from tkinter import *
 import convertation as cnv
+from tkinter.ttk import Combobox
 
 def convert_win(title, type, func):
     win2 = Toplevel(root)
@@ -20,6 +21,37 @@ def convert_win(title, type, func):
     content_frame.anchor("center")
 
     win2.mainloop()
+
+
+def calcul_win():
+    win3 = Toplevel(root)
+    win3.title("binary calculator")
+    win3.minsize(width=400, height=300)
+    
+    Label(win3, text="Calculator", font="Arial 20").pack(pady=10)
+    element_frame = Frame(win3)
+    element_frame.pack(pady=20, fill= BOTH, expand=True)
+
+    entry_1 = Entry(element_frame, font = "Arial 17", width=10)
+    entry_2 = Entry(element_frame, font = "Arial 17", width=10)
+    op_combo = Combobox(element_frame, values=("+", "-", "*", "/"), width=3)
+    
+    entry_1.grid(row=0, column=0, sticky=E+W, padx=(20, 10))
+    op_combo.grid(row=0, column=1)
+    entry_2.grid(row=0, column=2, sticky=E+W, padx=(10, 20))
+
+    element_frame.grid_columnconfigure(0, weight=1)
+    element_frame.grid_columnconfigure(1, weight=0)
+    element_frame.grid_columnconfigure(2, weight=1)
+
+    element_frame.anchor("center")
+    result_lab = Label(win3, text = "", font="Arial 20")
+    result_lab.pack(pady=40)
+    Button(win3, text="Calculate", height=2, command= lambda: result_lab
+           .config(text= f"Result: {calculating(entry1=entry_1, entry2=entry_2, mos=op_combo)}")).pack(fill="x", side=BOTTOM)
+
+    win3.mainloop()
+
 
 root = Tk()
 root.title("DecBin")
