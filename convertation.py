@@ -1,6 +1,14 @@
 from tkinter import END
 import tkinter.messagebox as ms
 
+def remove_first_symbol_zero(number):
+    for digit in number:
+        if digit == "0":
+            number = number[1:]
+        else:
+            break
+    return number
+
 def decimal_to_binary_lab(entry):
     try: 
         dec = int(entry.get())

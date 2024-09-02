@@ -18,7 +18,7 @@ def convert_win(title, type, func):
     result_lab = Label(win2, text = "", font="Arial 18")
     result_lab.pack(pady=10)
     Button(win2, text="Convert number", height=2, command=lambda: result_lab
-           .config(text = f"Entered number: {number_to_get.get()}\nResult: {func(number_to_get)}")).pack(fill='x', side=BOTTOM)
+           .config(text = f"Entered number: {cnv.remove_first_symbol_zero(number_to_get.get())}\nResult: {func(number_to_get)}")).pack(fill='x', side=BOTTOM)
     
     content_frame.anchor("center")
 
